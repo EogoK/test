@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script type="text/javascript">
+        var category = "{{ category }}"
+    </script>
+    <script src="{{ url_for('static', filename='script_subcategories.js') }}" defer></script>
+    <title>Web app</title>
+</head>
+<body>
+<h1 class="title">EasyToBuy</h1>
+
+<div class="category-items"></div>
+<div class="food-items"></div>
+<div class="cart">
+    <div class="cart-title-wrapper">
+        <div class="title">Посмотреть Корзину</div>
+        <button class="cart__further">Подтвердить &#x2192;</button>
+    </div>
+    <div class="cart__total-price">0.0 ₽</div>
+    <div class="cart__items"></div>
+</div>
+
+<template id="category-item">
+    <div class="category-item">
+        <img alt="category" class="category-item__icon">
+        <div class="category-item__info">
+            <div class="category-item__name"></div>
+        </div>
+        <div class="category-item__buttons">
+            <button class="category-item__button" data-add>Перейти</button>
+        </div>
+        <div class="category-item__count"></div>
+    </div>
+</template>
+
+<template id="cart-item">
+    <div class="cart-item">
+        <div class="cart-item__item">
+            <img alt="food" class="cart-item__icon">
+            <div class="cart-item__info">
+                <div class="cart-item__wrapper">
+                    <div class="cart-item__name"></div>
+                    <div class="cart-item__amount"></div>
+                </div>
+                <div class="cart-item__buttons">
+                    <button class="cart-item__button" data-remove>-</button>
+                    <button class="cart-item__button" data-add>+</button>
+                </div>
+            </div>
+        </div>
+        <div class="cart-item__price"></div>
+    </div>
+</template>
+</body>
+</html>
